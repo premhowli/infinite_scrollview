@@ -6,13 +6,15 @@ const initialState = {
   allContent:null
 };
 
+
+
 const contentReducer = (state = initialState, action) => {
   switch (action.type) {
   // Logged In
   case GET_ALL_CONTENT: {
     return {
       ...state,
-      allContent: action.payload.allContent
+      allContent: [...state.allContent,...action.payload.allContent]
     }
   }
   // Default
