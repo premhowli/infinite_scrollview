@@ -51,13 +51,14 @@ export default class RecycleTestComponent extends React.Component {
         //NOTE: For complex lists LayoutProvider will also be complex it would then make sense to move it to a different file
         this._layoutProvider = new LayoutProvider(
             index => {
-                if (index % 3 === 0) {
-                    return ViewTypes.FULL;
-                } else if (index % 3 === 1) {
-                    return ViewTypes.HALF_LEFT;
-                } else {
-                    return ViewTypes.HALF_RIGHT;
-                }
+                return ViewTypes.FULL;
+                // if (index % 3 === 0) {
+                //     return ViewTypes.FULL;
+                // } else if (index % 3 === 1) {
+                //     return ViewTypes.HALF_LEFT;
+                // } else {
+                //     return ViewTypes.HALF_RIGHT;
+                // }
             },
             (type, dim) => {
                 switch (type) {
@@ -71,7 +72,7 @@ export default class RecycleTestComponent extends React.Component {
                         break;
                     case ViewTypes.FULL:
                         dim.width = width;
-                        dim.height = 140;
+                        dim.height = 100;
                         break;
                     default:
                         dim.width = 0;
@@ -104,7 +105,7 @@ export default class RecycleTestComponent extends React.Component {
             <View style={{height:100,width:500,flexDirection:"row",justifyContent:"space-between"}}>
                 <TouchableOpacity>
                     <CustomCachedImage
-                                                  //asfsggamcfvcdnmnmnb
+                                                  //asfsggamcfvcdnmnmnbnn
                                                   component={Image}
                                                   source={{ uri: 'https://source.unsplash.com/random'+'?time'+(new Date()).getTime() }}
                                                   indicator={ProgressBar}
@@ -112,103 +113,29 @@ export default class RecycleTestComponent extends React.Component {
                                                       borderRadius:10
                                                   }}
                                                   style={{
-                                                      width: 200,
+                                                      width: 300,
                                                       height: 100,
                                                       borderRadius:10,
                                          }}/>
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <CustomCachedImage
-                        //asfsggamcfvcdnmnmnb
-                        component={Image}
-                        source={{ uri: 'https://source.unsplash.com/random'+'?time'+(new Date()).getTime() }}
-                        indicator={ProgressBar}
-                        imageStyle={{
-                            borderRadius:10
-                        }}
-                        style={{
-                            width: 200,
-                            height: 100,
-                            borderRadius:10,
-                        }}/>
-                </TouchableOpacity>
+                {/*<TouchableOpacity>*/}
+                    {/*<CustomCachedImage*/}
+                        {/*//asfsggamcfvcdnmnmnb*/}
+                        {/*component={Image}*/}
+                        {/*source={{ uri: 'https://source.unsplash.com/random'+'?time'+(new Date()).getTime() }}*/}
+                        {/*indicator={ProgressBar}*/}
+                        {/*imageStyle={{*/}
+                            {/*borderRadius:10*/}
+                        {/*}}*/}
+                        {/*style={{*/}
+                            {/*width: 200,*/}
+                            {/*height: 100,*/}
+                            {/*borderRadius:10,*/}
+                        {/*}}/>*/}
+                {/*</TouchableOpacity>*/}
             </View>
         )
 
-
-
-        // switch (type) {
-        //     case ViewTypes.HALF_LEFT:
-        //         return (
-        //             <CellContainer style={styles.containerGridLeft}>
-        //                 {/*<Text>Data: {data}</Text>*/}
-        //                 {/*<FastImage*/}
-        //                     {/*style={{ width: 200, height: 100 }}*/}
-        //                     {/*source={{*/}
-        //                         {/*uri: 'https://source.unsplash.com/random'+'?time'+(new Date()).getTime(),*/}
-        //                         {/*priority: FastImage.priority.normal,*/}
-        //                     {/*}}*/}
-        //                     {/*resizeMode={FastImage.resizeMode.stretch}*/}
-        //                 {/*/>*/}
-        //
-        //                 <CustomCachedImage
-        //                               //asfsggamcfvcdnmnmnb
-        //                               component={Image}
-        //                               source={{ uri: 'https://source.unsplash.com/random'+'?time'+(new Date()).getTime() }}
-        //                               indicator={ProgressBar}
-        //                               imageStyle={{
-        //                                   borderRadius:10
-        //                               }}
-        //                               style={{
-        //                                   width: 200,
-        //                                   height: 100,
-        //                                   borderRadius:10,
-        //                      }}/>
-        //             </CellContainer>
-        //         );
-        //     case ViewTypes.HALF_RIGHT:
-        //         return (
-        //             <CellContainer style={styles.containerGridRight}>
-        //                 {/*<Text>Data: {data}</Text>*/}
-        //                 <CustomCachedImage
-        //                     //asfsggamcfvcdnmnmnb
-        //                     component={Image}
-        //                     source={{ uri: 'https://source.unsplash.com/random'+'?time'+(new Date()).getTime() }}
-        //                     indicator={ProgressBar}
-        //                     imageStyle={{
-        //                         borderRadius:10
-        //                     }}
-        //                     style={{
-        //
-        //                         width: 200,
-        //                         height: 100,
-        //                         borderRadius:10
-        //                     }}/>
-        //             </CellContainer>
-        //         );
-        //     case ViewTypes.FULL:
-        //         return (
-        //             <CellContainer style={styles.container}>
-        //                 {/*<Text>Data: {data}</Text>*/}
-        //                 <CustomCachedImage
-        //                     //asfsggamcfvcdnmnmnb
-        //                     component={Image}
-        //                     source={{ uri: 'https://source.unsplash.com/random'+'?time'+(new Date()).getTime() }}
-        //                     indicator={ProgressBar}
-        //                     imageStyle={{
-        //                         borderRadius:10
-        //                     }}
-        //                     style={{
-        //
-        //                         width: 200,
-        //                         height: 100,
-        //                         borderRadius:10
-        //                     }}/>
-        //             </CellContainer>
-        //         );
-        //     default:
-        //         return null;
-        // }
     }
 
     render() {
