@@ -9,6 +9,7 @@ import ProgressBar from 'react-native-progress/Bar';
 import {CustomCachedImage, ImageCache} from 'react-native-img-cache';
 import LazyImage from "react-lazy-progressive-image";
 //import ProgressiveImage from 'react-native-progressive-image'
+import {Dimensions } from "react-native";
 import { connect } from "react-redux";
 import FlatlistPagination from './Asd';
 
@@ -58,6 +59,8 @@ class Home extends React.Component {
                 }
             ]
         }
+        this.screenWidth = Math.round(Dimensions.get('window').width);
+        this.screenHeight = Math.round(Dimensions.get('window').height);
     }
 
     componentDidMount(){
@@ -104,7 +107,7 @@ class Home extends React.Component {
         }
     }
 
-    onMomentumScrollBegin = () => { this.onEndReachedCalledDuringMomentum = false; }
+    onMomentumScrollBegin = () => { this.onEndReachedCalledDuringMomentum = false; };
 
 
     static getDerivedStateFromProps(nextProp, prevState) {
@@ -116,8 +119,17 @@ class Home extends React.Component {
 
 
         return (
+            <View>
+                <View style={{height:50,width:this.screenWidth,backgroundColor:"#00c2c7"}}>
+                    <Text>Premangshu Howli</Text>
+                </View>
 
-            <FlatlistPagination />
+            <View
+            style={{width:this.screenWidth,height:this.screenHeight-50}}
+            >
+            <FlatlistPagination width={this.screenWidth} height={this.screenHeight-50} elementHeight={this.screenHeight*0.3} />
+            </View>
+            </View>
 
 
 
